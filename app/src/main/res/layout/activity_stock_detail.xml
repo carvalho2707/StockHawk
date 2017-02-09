@@ -95,6 +95,16 @@
         app:layout_constraintTop_toTopOf="@+id/tvPriceLabel"
         tools:text="@string/stock_price_val" />
 
+    <ImageView
+        android:layout_width="23dp"
+        android:layout_height="22dp"
+        tools:src="@drawable/ic_trending_up_black_48dp"
+        android:id="@+id/ivTrending"
+        app:layout_constraintTop_toTopOf="@+id/tvPriceLabel"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPriceLabel"
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/tvPrice" />
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="336dp"

@@ -39,7 +39,9 @@
     <string name="stock_percentage_default">100%</string>
 
     <!--Content descriptions-->
-    <string name="button_add_stock">Add new Stock</string>
+    <string name="button_add_stock">Add Button</string>
+    <string name="trending_up_image">Stock Trending Up</string>
+    <string name="trending_down_image">Stock Trending Down</string>
 
     <!--Mock Data-->
     <string name="stock_name_default">GOOG</string>

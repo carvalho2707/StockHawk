@@ -8,6 +8,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -44,15 +45,12 @@ public class StockDetailActivity extends AppCompatActivity implements LoaderMana
     TextView mChartHistory;
     @BindView(R.id.tvPrice)
     TextView mPrice;
+    @BindView(R.id.ivTrending)
+    ImageView mTrendingImage;
 
     private static final int ID_DETAIL_LOADER = 353;
 
     private String symbol;
-
-    private DecimalFormat dollarFormatWithPlus;
-    private DecimalFormat dollarFormat;
-    private DecimalFormat percentageFormat;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,14 +61,6 @@ public class StockDetailActivity extends AppCompatActivity implements LoaderMana
 
         Intent intent = getIntent();
         symbol = intent.getStringExtra(Intent.EXTRA_TEXT);
-
-        dollarFormat = (DecimalFormat) NumberFormat.getCurrencyInstance(Locale.US);
-        dollarFormatWithPlus = (DecimalFormat) NumberFormat.getCurrencyInstance(Locale.US);
-        dollarFormatWithPlus.setPositivePrefix("+$");
-        percentageFormat = (DecimalFormat) NumberFormat.getPercentInstance(Locale.getDefault());
-        percentageFormat.setMaximumFractionDigits(2);
-        percentageFormat.setMinimumFractionDigits(2);
-        percentageFormat.setPositivePrefix("+");
 
         getSupportLoaderManager().initLoader(ID_DETAIL_LOADER, null, this);
     }
@@ -104,12 +94,14 @@ public class StockDetailActivity extends AppCompatActivity implements LoaderMana
         String currency = data.getString(Contract.Quote.POSITION_CURRENCY);
         String history = data.getString(Contract.Quote.POSITION_HISTORY);
         float price = data.getFloat(Contract.Quote.POSITION_PRICE);
+        float rawAbsoluteChange = data.getFloat(Contract.Quote.POSITION_ABSOLUTE_CHANGE);
 
-        if (PrefUtils.getDisplayMode(this)
-                .equals(this.getString(R.string.pref_display_mode_absolute_key))) {
-            //TODO
+        if (rawAbsoluteChange > 0) {
+            mTrendingImage.setBackgroundResource(R.drawable.ic_trending_up_black_48dp);
+            mTrendingImage.setContentDescription(this.getString(R.string.trending_up_image));
         } else {
-            //TODO
+            mTrendingImage.setBackgroundResource(R.drawable.ic_trending_down_black_48dp);
+            mTrendingImage.setContentDescription(this.getString(R.string.trending_down_image));
         }
 
         mStockName.setText(symbol);
