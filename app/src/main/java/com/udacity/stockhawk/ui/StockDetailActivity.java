@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -41,12 +43,13 @@ public class StockDetailActivity extends AppCompatActivity implements LoaderMana
     TextView mStockCurrency;
     @BindView(R.id.tvExchange)
     TextView mStockExchange;
-    @BindView(R.id.chartStockHistory)
-    TextView mChartHistory;
+    /*@BindView(R.id.chartStockHistory)
+    TextView mChartHistory;*/
     @BindView(R.id.tvPrice)
     TextView mPrice;
     @BindView(R.id.ivTrending)
     ImageView mTrendingImage;
+    LineChart mChartHistory;
 
     private static final int ID_DETAIL_LOADER = 353;
 
@@ -61,6 +64,11 @@ public class StockDetailActivity extends AppCompatActivity implements LoaderMana
 
         Intent intent = getIntent();
         symbol = intent.getStringExtra(Intent.EXTRA_TEXT);
+
+        mChartHistory = (LineChart) findViewById(R.id.chartStockHistory);
+        XAxis xaxis = mChartHistory.getXAxis();
+        xaxis.setTextColor(ContextCompat.getColor(this, R.color.primaryText));
+        xaxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
         getSupportLoaderManager().initLoader(ID_DETAIL_LOADER, null, this);
     }
@@ -107,9 +115,11 @@ public class StockDetailActivity extends AppCompatActivity implements LoaderMana
         mStockName.setText(symbol);
         mStockCurrency.setText(currency);
         mStockExchange.setText(stockExchange);
+/*
         mChartHistory.setText(history);
+*/
         mPrice.setText(price + " " + currency);
-        /*generateChartData(history);*/
+        generateChartData(history, price);
 
 
     }
@@ -118,20 +128,23 @@ public class StockDetailActivity extends AppCompatActivity implements LoaderMana
     public void onLoaderReset(Loader<Cursor> loader) {
     }
 
-   /* public void generateChartData(String history) {
+    public void generateChartData(String history, float price) {
+        int count = 0;
         List<Entry> entries = new ArrayList<Entry>();
         String[] historyArray = history.split("\\n");
-        for (int i = 0; i < 20; i++) {
-       *//* for (String historyValue : historyArray) {*//*
-            String[] row = historyArray[i].split(", ");
+        for (String historyValue : historyArray) {
+            String[] row = historyValue.split(", ");
             long timestamp = Long.valueOf(row[0]);
             float valueY = Float.valueOf(row[1]);
-            entries.add(new Entry(timestamp, valueY));
+            entries.add(new Entry(count++, valueY));
         }
+        entries.add(new Entry(count, price));
 
-        LineDataSet dataSet = new LineDataSet(entries, "Label"); // add entries to dataset
+        LineDataSet dataSet = new LineDataSet(entries, symbol); // add entries to dataset
+        dataSet.setColor(ContextCompat.getColor(this, R.color.colorAccent));
+        dataSet.setDrawCircles(false);
         LineData lineData = new LineData(dataSet);
-        chart.setData(lineData);
-        chart.invalidate(); // refresh
-    }*/
+        mChartHistory.setData(lineData);
+        mChartHistory.invalidate(); // refresh
+    }
 }
