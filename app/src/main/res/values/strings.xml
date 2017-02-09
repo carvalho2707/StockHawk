@@ -45,7 +45,10 @@
     <string name="stock_name_default">GOOG</string>
     <string name="stock_currency_name">Currency: </string>
     <string name="stock_exchange_name">Exchange: </string>
+    <string name="stock_price_name">Price: </string>
     <string name="stock_currency_val">€</string>
     <string name="stock_exchange_val">NASDAQ</string>
+    <string name="stock_history_val">2015-03-09, 127.959999</string>
+    <string name="stock_price_val">144</string>
 
 </resources>

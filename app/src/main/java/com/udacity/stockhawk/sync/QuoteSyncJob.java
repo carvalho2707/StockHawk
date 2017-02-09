@@ -77,8 +77,11 @@ public final class QuoteSyncJob {
                 Stock stock = quotes.get(symbol);
                 StockQuote quote = stock.getQuote();
 
-                if(quote.getPrice() == null){
-                    PrefUtils.removeStock(context,symbol);
+                String exchange = stock.getStockExchange();
+                String currency = stock.getCurrency();
+
+                if (quote.getPrice() == null) {
+                    PrefUtils.removeStock(context, symbol);
                     continue;
                 }
 
@@ -104,7 +107,8 @@ public final class QuoteSyncJob {
                 quoteCV.put(Contract.Quote.COLUMN_PRICE, price);
                 quoteCV.put(Contract.Quote.COLUMN_PERCENTAGE_CHANGE, percentChange);
                 quoteCV.put(Contract.Quote.COLUMN_ABSOLUTE_CHANGE, change);
-
+                quoteCV.put(Contract.Quote.COLUMN_CURRENCY, currency);
+                quoteCV.put(Contract.Quote.COLUMN_EXCHANGE, exchange);
 
                 quoteCV.put(Contract.Quote.COLUMN_HISTORY, historyBuilder.toString());
 
