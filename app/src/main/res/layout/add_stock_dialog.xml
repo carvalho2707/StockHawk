@@ -6,14 +6,14 @@
 
     <EditText
         android:id="@+id/dialog_stock"
-        android:textColor="@color/primaryText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="@dimen/stock_dialog_bottom_margin"
+        android:layout_marginLeft="@dimen/stock_dialog_left_margin"
+        android:layout_marginRight="@dimen/stock_dialog_right_margin"
+        android:layout_marginTop="@dimen/stock_dialog_top_margin"
         android:hint="@string/dialog_hint"
-        android:inputType="textCapCharacters" />
+        android:inputType="textCapCharacters"
+        android:textColor="@color/primaryText" />
 
 </LinearLayout>

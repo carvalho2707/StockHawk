@@ -10,8 +10,8 @@
         android:layout_height="?android:attr/listPreferredItemHeight"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:paddingLeft="@dimen/list_quote_layout_padding_left"
+        android:paddingRight="@dimen/list_quote_layout_padding_right">
 
         <TextView
             android:id="@+id/symbol"
@@ -32,7 +32,7 @@
                 style="@style/BidPriceTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10sp"
+                android:layout_marginEnd="@dimen/list_quote_price_margin_end"
                 tools:text="@string/stock_price_default" />
 
             <TextView
@@ -41,8 +41,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/percent_change_pill_green"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
+                android:paddingLeft="@dimen/list_quote_change_padding_left"
+                android:paddingRight="@dimen/list_quote_change_padding_right"
                 tools:text="@string/stock_percentage_default" />
         </LinearLayout>
     </LinearLayout>

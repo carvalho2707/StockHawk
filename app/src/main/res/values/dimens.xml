@@ -1,11 +1,29 @@
 <resources>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <!--Stock Details Activity-->
+    <dimen name="stock_name_padding">16dp</dimen>
     <dimen name="stock_detail_name_padding">20dp</dimen>
     <dimen name="stock_detail_activity_margin">16dp</dimen>
-    <dimen name="stock_values_margin">8dp</dimen>
+    <dimen name="stock_details_top_margin">8dp</dimen>
+    <dimen name="stock_details_left_margin">8dp</dimen>
     <dimen name="stock_history_top_margin">16dp</dimen>
-
     <dimen name="stock_title_text_size">32sp</dimen>
     <dimen name="stock_label_text_size">16sp</dimen>
+
+    <!--Add Stock Dialog-->
+    <dimen name="stock_dialog_left_margin">4dp</dimen>
+    <dimen name="stock_dialog_top_margin">16dp</dimen>
+    <dimen name="stock_dialog_right_margin">4dp</dimen>
+    <dimen name="stock_dialog_bottom_margin">4dp</dimen>
+
+    <!--List Item Quotes-->
+    <dimen name="list_quote_price_margin_end">10sp</dimen>
+    <dimen name="list_quote_change_padding_left">3dp</dimen>
+    <dimen name="list_quote_change_padding_right">3dp</dimen>
+
+    <dimen name="list_quote_layout_padding_left">activity_horizontal_margin</dimen>
+    <dimen name="list_quote_layout_padding_right">activity_horizontal_margin</dimen>
 </resources>

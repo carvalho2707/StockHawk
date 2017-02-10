@@ -24,8 +24,7 @@
 
         <TextView
             android:id="@+id/tvStockName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/StockDetailsTextStyle"
             android:background="@color/primaryLightColor"
             android:gravity="center_vertical|center_horizontal"
             android:padding="@dimen/activity_horizontal_margin"
@@ -36,58 +35,39 @@
 
         <TextView
             android:id="@+id/tvCurrencyLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            style="@style/StockDetailsLabelsTextStyle"
             android:text="@string/stock_currency_name"
-            android:textColor="@color/primaryText"
-            android:textSize="@dimen/stock_label_text_size"
             app:layout_constraintLeft_toRightOf="@+id/tvStockName"
             app:layout_constraintTop_toTopOf="@+id/tvStockName" />
 
         <TextView
             android:id="@+id/tvExchangeLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/stock_values_margin"
+            style="@style/StockDetailsLabelsTextStyle"
+            android:layout_marginTop="@dimen/stock_details_top_margin"
             android:text="@string/stock_exchange_name"
-            android:textColor="@color/primaryText"
-            android:textSize="@dimen/stock_label_text_size"
             app:layout_constraintLeft_toRightOf="@+id/tvStockName"
             app:layout_constraintTop_toBottomOf="@+id/tvCurrencyLabel" />
 
         <TextView
             android:id="@+id/tvPriceLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            style="@style/StockDetailsLabelsTextStyle"
+            android:layout_marginTop="@dimen/stock_details_top_margin"
             android:text="@string/stock_price_name"
-            android:textColor="@color/primaryText"
-            android:textSize="@dimen/stock_label_text_size"
-            app:layout_constraintBottom_toBottomOf="@+id/tvStockName"
-            app:layout_constraintLeft_toLeftOf="@+id/tvExchangeLabel"
+            app:layout_constraintLeft_toRightOf="@+id/tvStockName"
             app:layout_constraintTop_toBottomOf="@+id/tvExchangeLabel" />
 
         <TextView
             android:id="@+id/tvCurrency"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/secondaryText"
-            android:textSize="@dimen/stock_label_text_size"
+            style="@style/StockDetailsValuesTextStyle"
             app:layout_constraintLeft_toLeftOf="@+id/tvExchange"
             app:layout_constraintTop_toTopOf="@+id/tvCurrencyLabel"
             tools:text="@string/stock_currency_val" />
 
         <TextView
             android:id="@+id/tvExchange"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/stock_values_margin"
-            android:textColor="@color/secondaryText"
-            android:textSize="@dimen/stock_label_text_size"
+            style="@style/StockDetailsValuesTextStyle"
+            android:layout_marginLeft="@dimen/stock_details_left_margin"
+            android:layout_marginStart="@dimen/stock_details_left_margin"
             app:layout_constraintBottom_toBottomOf="@+id/tvExchangeLabel"
             app:layout_constraintLeft_toRightOf="@+id/tvExchangeLabel"
             tools:text="@string/stock_exchange_val" />
@@ -95,20 +75,21 @@
 
         <TextView
             android:id="@+id/tvPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/StockDetailsValuesTextStyle"
             app:layout_constraintLeft_toLeftOf="@+id/tvExchange"
             app:layout_constraintTop_toTopOf="@+id/tvPriceLabel"
             tools:text="@string/stock_price_val" />
 
         <ImageView
             android:id="@+id/ivTrending"
-            android:layout_width="23dp"
+            android:layout_width="22dp"
             android:layout_height="22dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginLeft="@dimen/stock_details_left_margin"
+            android:layout_marginStart="@dimen/stock_details_left_margin"
             app:layout_constraintBottom_toBottomOf="@+id/tvPriceLabel"
             app:layout_constraintLeft_toRightOf="@+id/tvPrice"
             app:layout_constraintTop_toTopOf="@+id/tvPriceLabel"
+            tools:contentDescription="@string/trending_down_image"
             tools:src="@drawable/ic_trending_up_black_48dp" />
 
     </android.support.constraint.ConstraintLayout>
