@@ -31,7 +31,6 @@
     <style name="StockDetailsLabelsTextStyle" parent="StockDetailsTextStyle">
         <item name="android:textSize">@dimen/stock_label_text_size</item>
         <item name="android:textColor">@color/primaryText</item>
-        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
         <item name="android:layout_marginStart">@dimen/activity_horizontal_margin</item>
     </style>
 

@@ -1,6 +1,8 @@
 package com.udacity.stockhawk.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v4.app.LoaderManager;
@@ -9,6 +11,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -132,14 +135,25 @@ public class StockDetailActivity extends AppCompatActivity implements LoaderMana
         int count = 0;
         List<Entry> entries = new ArrayList<Entry>();
         String[] historyArray = history.split("\\n");
-        for (String historyValue : historyArray) {
-            String[] row = historyValue.split(", ");
-            long timestamp = Long.valueOf(row[0]);
-            float valueY = Float.valueOf(row[1]);
-            entries.add(new Entry(count++, valueY));
-        }
-        entries.add(new Entry(count, price));
 
+       /* if (isRtl(this)) {
+            count = historyArray.length;
+            for (int i = historyArray.length - 1; i >= 0; i--) {
+                String[] row = historyArray[i].split(", ");
+                float valueY = Float.valueOf(row[1]);
+                entries.add(new Entry(count--, valueY));
+            }
+            entries.add(new Entry(count, price));
+        } else {*/
+
+            for (String historyValue : historyArray) {
+                String[] row = historyValue.split(", ");
+                float valueY = Float.valueOf(row[1]);
+                entries.add(new Entry(count++, valueY));
+            }
+            entries.add(new Entry(count, price));
+
+        /*}*/
         LineDataSet dataSet = new LineDataSet(entries, symbol); // add entries to dataset
         dataSet.setColor(ContextCompat.getColor(this, R.color.colorAccent));
         dataSet.setDrawCircles(false);
@@ -147,4 +161,11 @@ public class StockDetailActivity extends AppCompatActivity implements LoaderMana
         mChartHistory.setData(lineData);
         mChartHistory.invalidate(); // refresh
     }
+
+    public boolean isRtl(Context context) {
+        Configuration config = context.getResources().getConfiguration();
+        return config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
+
+    }
+
 }

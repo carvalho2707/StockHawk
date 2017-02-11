@@ -10,8 +10,8 @@
         android:layout_height="?android:attr/listPreferredItemHeight"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/list_quote_layout_padding_left"
-        android:paddingRight="@dimen/list_quote_layout_padding_right">
+        android:paddingEnd="@dimen/list_quote_layout_padding_right"
+        android:paddingStart="@dimen/list_quote_layout_padding_left">
 
         <TextView
             android:id="@+id/symbol"
@@ -41,8 +41,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/percent_change_pill_green"
-                android:paddingLeft="@dimen/list_quote_change_padding_left"
-                android:paddingRight="@dimen/list_quote_change_padding_right"
+                android:paddingEnd="@dimen/list_quote_change_padding_right"
+                android:paddingStart="@dimen/list_quote_change_padding_left"
                 tools:text="@string/stock_percentage_default" />
         </LinearLayout>
     </LinearLayout>
