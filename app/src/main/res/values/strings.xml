@@ -18,7 +18,7 @@
     <string name="default_stocks_facebook">FB</string>
 
 
-    <string name="action_change_units">@string/pref_display_mode_key</string>
+    <string name="action_change_units" translatable="false">@string/pref_display_mode_key</string>
 
 
     <string name="dialog_title">Add Stock</string>
@@ -40,7 +40,7 @@
     <string name="stock_percentage_default">100%</string>
 
     <!--Content descriptions-->
-    <string name="button_add_stock">Add Button</string>
+    <string name="button_add_stock">Add Stock Button</string>
     <string name="trending_up_image">Stock Trending Up</string>
     <string name="trending_down_image">Stock Trending Down</string>
 

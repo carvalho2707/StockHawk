@@ -118,9 +118,7 @@ public class StockDetailActivity extends AppCompatActivity implements LoaderMana
         mStockName.setText(symbol);
         mStockCurrency.setText(currency);
         mStockExchange.setText(stockExchange);
-/*
-        mChartHistory.setText(history);
-*/
+
         mPrice.setText(price + " " + currency);
         generateChartData(history, price);
 
@@ -136,36 +134,19 @@ public class StockDetailActivity extends AppCompatActivity implements LoaderMana
         List<Entry> entries = new ArrayList<Entry>();
         String[] historyArray = history.split("\\n");
 
-       /* if (isRtl(this)) {
-            count = historyArray.length;
-            for (int i = historyArray.length - 1; i >= 0; i--) {
-                String[] row = historyArray[i].split(", ");
-                float valueY = Float.valueOf(row[1]);
-                entries.add(new Entry(count--, valueY));
-            }
-            entries.add(new Entry(count, price));
-        } else {*/
+        for (String historyValue : historyArray) {
+            String[] row = historyValue.split(", ");
+            float valueY = Float.valueOf(row[1]);
+            entries.add(new Entry(count++, valueY));
+        }
+        entries.add(new Entry(count, price));
 
-            for (String historyValue : historyArray) {
-                String[] row = historyValue.split(", ");
-                float valueY = Float.valueOf(row[1]);
-                entries.add(new Entry(count++, valueY));
-            }
-            entries.add(new Entry(count, price));
-
-        /*}*/
         LineDataSet dataSet = new LineDataSet(entries, symbol); // add entries to dataset
         dataSet.setColor(ContextCompat.getColor(this, R.color.colorAccent));
         dataSet.setDrawCircles(false);
         LineData lineData = new LineData(dataSet);
         mChartHistory.setData(lineData);
         mChartHistory.invalidate(); // refresh
-    }
-
-    public boolean isRtl(Context context) {
-        Configuration config = context.getResources().getConfiguration();
-        return config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
-
     }
 
 }
