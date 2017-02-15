@@ -8,6 +8,9 @@
     <color name="primaryLightColor">#B3E5FC</color>
     <color name="divider">#BDBDBD</color>
 
+    <color name="white">#FFFFFF</color>
+    <!-- the activated state color -->
+    <color name="activated">@color/primaryLightColor</color>
     <color name="material_red_700">#D50000</color>
     <color name="material_green_700">#00C853</color>
 

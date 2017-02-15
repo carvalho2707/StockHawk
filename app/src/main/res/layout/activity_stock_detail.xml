@@ -65,7 +65,7 @@
             tools:text="@string/stock_currency_val"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            tools:layout_editor_absoluteX="224dp" />
+            tools:layout_editor_absoluteX="216dp" />
 
         <TextView
             android:id="@+id/tvExchange"
@@ -75,7 +75,7 @@
             tools:text="@string/stock_exchange_val"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            tools:layout_editor_absoluteX="224dp" />
+            tools:layout_editor_absoluteX="216dp" />
 
 
         <TextView
@@ -86,7 +86,7 @@
             tools:text="@string/stock_price_val"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            tools:layout_editor_absoluteX="224dp" />
+            tools:layout_editor_absoluteX="216dp" />
 
         <ImageView
             android:id="@+id/ivTrending"
@@ -97,7 +97,7 @@
             app:layout_constraintTop_toTopOf="@+id/tvPriceLabel"
             tools:contentDescription="@string/trending_down_image"
             tools:src="@drawable/ic_trending_up_black_48dp"
-            tools:layout_editor_absoluteX="256dp" />
+            tools:layout_editor_absoluteX="240dp" />
 
     </android.support.constraint.ConstraintLayout>
 

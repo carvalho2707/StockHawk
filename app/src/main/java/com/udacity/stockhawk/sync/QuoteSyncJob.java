@@ -39,6 +39,8 @@ public final class QuoteSyncJob {
     private static final int PERIODIC_ID = 1;
     private static final int YEARS_OF_HISTORY = 2;
 
+    public static final String ACTION_DATA_UPDATED_WIDGET = "com.udacity.stockhawk.ACTION_DATA_UPDATED_WIDGET";
+
     private QuoteSyncJob() {
     }
 
@@ -124,9 +126,18 @@ public final class QuoteSyncJob {
             Intent dataUpdatedIntent = new Intent(ACTION_DATA_UPDATED);
             context.sendBroadcast(dataUpdatedIntent);
 
+            notifyWidgetList(context);
+
         } catch (IOException exception) {
             Timber.e(exception, "Error fetching stock quotes");
         }
+    }
+
+    private static void notifyWidgetList(Context context) {
+        // Setting the package ensures that only components in our app will receive the broadcast
+        Intent dataUpdatedIntent = new Intent(ACTION_DATA_UPDATED_WIDGET)
+                .setPackage(context.getPackageName());
+        context.sendBroadcast(dataUpdatedIntent);
     }
 
     private static void schedulePeriodic(Context context) {

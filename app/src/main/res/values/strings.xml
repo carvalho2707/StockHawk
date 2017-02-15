@@ -28,6 +28,7 @@
 
     <string name="error_no_network">No network connectivity! Will load stock cursor when the network is available.</string>
     <string name="error_no_stocks">No stocks added! Hit the floating action button to add one.</string>
+    <string name="error_no_stocks_widget">No stocks added! Please some stocks.</string>
 
     <string name="toast_stock_added_no_connectivity">Symbol %s added. Will refresh when network available.</string>
     <string name="toast_no_connectivity">Will refresh when network available.</string>
@@ -52,5 +53,7 @@
     <string name="stock_exchange_val">NASDAQ</string>
     <string name="stock_history_val">2015-03-09, 127.959999</string>
     <string name="stock_price_val">144</string>
+
+    <string name="title_widget_detail">StockHawk Details</string>
 
 </resources>
