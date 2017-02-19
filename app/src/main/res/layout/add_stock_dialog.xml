@@ -13,6 +13,7 @@
         android:layout_marginEnd="@dimen/stock_dialog_right_margin"
         android:layout_marginTop="@dimen/stock_dialog_top_margin"
         android:hint="@string/dialog_hint"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         android:inputType="textCapCharacters"
         android:textColor="@color/primaryText" />
 

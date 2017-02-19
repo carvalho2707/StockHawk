@@ -54,11 +54,11 @@ public final class PrefUtils {
     }
 
     public static void addStock(Context context, String symbol) {
-        editStockPref(context, symbol, true);
+        editStockPref(context, symbol.toUpperCase(), true);
     }
 
     public static void removeStock(Context context, String symbol) {
-        editStockPref(context, symbol, false);
+        editStockPref(context, symbol.toUpperCase(), false);
     }
 
     public static String getDisplayMode(Context context) {
@@ -88,4 +88,8 @@ public final class PrefUtils {
         editor.apply();
     }
 
+    public static boolean alreadyExists(Context context, String symbol) {
+        Set<String> stocks = getStocks(context);
+        return stocks.contains(symbol);
+    }
 }
